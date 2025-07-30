@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <title>Project Monitoring System</title>
+</head>
+
+<body style="min-height: 100vh;">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">PMS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+                    aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">Home
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        {% if user.is_authenticated %}
+                        <li><a class="nav-link" href="#">{{user.username}}</a></li>
+                        <li><a class="nav-link" href="/">Logout</a></li>
+                        {% else %}
+                        <li><a class="nav-link" href="/">Login</a></li>
+                        <li><a class="nav-link" href="/">Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-4 min-vh-100">
+        {% block content %}
+        <!-- Content will be injected here -->
+        {% endblock %}
+    </main>
+    <footer class="text-center mt-4">
+        <p>&copy; {% now 'Y' %} Project Monitoring System</p>
+    </footer>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+# Ignore virtual environments
+.venv/
+venv/
+env/
+
+# Python stuff
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# VS Code settings (optional)
+.vscode/
+
+# Django-specific
+db.sqlite3
+/static/
+*.pyc
+
+# Environment files
+.env
+# Ignore migrations
+migrations/
